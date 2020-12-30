@@ -1,33 +1,33 @@
 {
-    "dev": {
-        "awscloudformation": {
-            "AuthRoleName": "amplify-susieart-dev-80625-authRole",
-            "UnauthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-dev-80625-unauthRole",
-            "AuthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-dev-80625-authRole",
-            "Region": "us-east-1",
-            "DeploymentBucketName": "amplify-susieart-dev-80625-deployment",
-            "UnauthRoleName": "amplify-susieart-dev-80625-unauthRole",
-            "StackName": "amplify-susieart-dev-80625",
-            "StackId": "arn:aws:cloudformation:us-east-1:941134089152:stack/amplify-susieart-dev-80625/d5955040-4a9f-11eb-a444-12cd418968c5",
-            "AmplifyAppId": "d2xr0hwu7epy97"
-        },
-        "categories": {
-            "function": {
-                "susieart077df6a8CustomMessage": {
-                    "REDIRECTURL": "http://localhost:3001/",
-                    "EMAILSUBJECT": "Account confirmation",
-                    "EMAILMESSAGE": "Your Google account has been confirmed"
-                }
-            },
-            "auth": {
-                "susieart077df6a8": {}
-            },
-            "hosting": {
-                "amplifyhosting": {
-                    "appId": "d2xr0hwu7epy97",
-                    "type": "cicd"
-                }
-            }
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-susieart-dev-80625-authRole",
+      "UnauthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-dev-80625-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-dev-80625-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-susieart-dev-80625-deployment",
+      "UnauthRoleName": "amplify-susieart-dev-80625-unauthRole",
+      "StackName": "amplify-susieart-dev-80625",
+      "StackId": "arn:aws:cloudformation:us-east-1:941134089152:stack/amplify-susieart-dev-80625/d5955040-4a9f-11eb-a444-12cd418968c5",
+      "AmplifyAppId": "d2xr0hwu7epy97"
+    },
+    "categories": {
+      "function": {
+        "susieart077df6a8CustomMessage": {
+          "REDIRECTURL": "http://localhost:3001/",
+          "EMAILSUBJECT": "Account confirmation",
+          "EMAILMESSAGE": "Your Google account has been confirmed"
         }
+      },
+      "auth": {
+        "susieart077df6a8": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2xr0hwu7epy97",
+          "type": "cicd"
+        }
+      }
     }
+  }
 }
