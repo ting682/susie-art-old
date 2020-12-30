@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Amplify from 'aws-amplify';
-import config from './aws-exports'
+import awsmobile from './aws-exports'
 import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import { createBrowserHistory } from 'history'
 import { Provider } from 'react-redux';
@@ -12,7 +12,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk'
 import { rootReducer } from './reducers/rootReducer'
 
-Amplify.configure(config)
+Amplify.configure(awsmobile)
 
 export const history = createBrowserHistory()
 
