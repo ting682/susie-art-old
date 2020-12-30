@@ -149,19 +149,10 @@ Parameters:
     Type: String
   
             
-  hostedUIProviderCreds:
-    Type: String
-  
-            
-  oAuthMetadata:
-    Type: String
-  
-            
         
   userPoolGroupList:
     Type: CommaDelimitedList
       
-            
   serviceName:
     Type: String
   
@@ -186,6 +177,30 @@ Parameters:
   dependsOn:
     Type: CommaDelimitedList
       
+  hostedUIProviderCreds:
+    Type: String
+  
+            
+  
+  thirdPartyAuth:
+    Type: String
+            
+  
+  userPoolGroups:
+    Type: String
+            
+  
+  adminQueries:
+    Type: String
+            
+  oAuthMetadata:
+    Type: String
+  
+            
+  adminQueryGroup:
+    Type: String
+  
+            
 Conditions:
   ShouldNotCreateEnvResources: !Equals [ !Ref env, NONE ]
 
@@ -339,6 +354,9 @@ Resources:
     Properties:
       ClientName: susiea077df6a8_app_clientWeb
       
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
+      
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity
       UserPoolId: !Ref UserPool
     DependsOn: UserPool
@@ -348,6 +366,9 @@ Resources:
     Type: "AWS::Cognito::UserPoolClient"
     Properties:
       ClientName: susiea077df6a8_app_client
+      
+      ReadAttributes: !Ref userpoolClientReadAttributes
+      WriteAttributes: !Ref userpoolClientWriteAttributes
       
       GenerateSecret: !Ref userpoolClientGenerateSecret
       RefreshTokenValidity: !Ref userpoolClientRefreshTokenValidity

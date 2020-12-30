@@ -1,6 +1,6 @@
 {
     "identityPoolName": "susieart077df6a8_identitypool_077df6a8",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "susiea077df6a8",
     "userPoolName": "susieart077df6a8_userpool_077df6a8",
     "autoVerifiedAttributes": [
@@ -25,13 +25,19 @@
     "userpoolClientGenerateSecret": true,
     "userpoolClientRefreshTokenValidity": 30,
     "userpoolClientWriteAttributes": [
-        "email"
+        "address",
+        "phone_number",
+        "email",
+        "name",
+        "picture"
     ],
     "userpoolClientReadAttributes": [
-        "email"
+        "address",
+        "email",
+        "phone_number"
     ],
     "userpoolClientLambdaRole": "susiea077df6a8_userpoolclient_lambda_role",
-    "userpoolClientSetAttributes": false,
+    "userpoolClientSetAttributes": true,
     "sharedId": "077df6a8",
     "resourceName": "susieart077df6a8",
     "authSelections": "identityPoolAndUserPool",
@@ -47,20 +53,19 @@
             "Arn"
         ]
     },
-    "useDefault": "defaultSocial",
+    "useDefault": "manual",
     "hostedUI": true,
     "usernameAttributes": [
         "email, phone_number"
     ],
     "triggers": "{\n  \"CustomMessage\": [\n    \"verification-link\"\n  ]\n}",
     "hostedUIDomainName": "susie-art",
-    "authProvidersUserPool": [
-        "Facebook",
-        "Google"
+    "authProvidersUserPool": [],
+    "hostedUIProviderMeta": "[]",
+    "userPoolGroupList": [
+        "Admin",
+        "User"
     ],
-    "hostedUIProviderMeta": "[{\"ProviderName\":\"Facebook\",\"authorize_scopes\":\"email,public_profile\",\"AttributeMapping\":{\"email\":\"email\",\"name\":\"name\",\"picture\":\"picture\",\"username\":\"id\"}},{\"ProviderName\":\"Google\",\"authorize_scopes\":\"openid email profile\",\"AttributeMapping\":{\"email\":\"email\",\"name\":\"name\",\"picture\":\"picture\",\"username\":\"sub\"}}]",
-    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3001/\"],\"LogoutURLs\":[\"http://localhost:3001/\"]}",
-    "userPoolGroupList": [],
     "serviceName": "Cognito",
     "verificationBucketName": "susieart077df6a8verificationbucket",
     "usernameCaseSensitive": false,
@@ -78,5 +83,10 @@
                 "Name"
             ]
         }
-    ]
+    ],
+    "thirdPartyAuth": false,
+    "userPoolGroups": true,
+    "adminQueries": true,
+    "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3001/\"],\"LogoutURLs\":[\"http://localhost:3001/\"]}",
+    "adminQueryGroup": "Admin"
 }
