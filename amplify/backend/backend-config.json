@@ -46,5 +46,34 @@
       "type": "cicd",
       "lastPushTimeStamp": "2020-12-30T13:52:30.183Z"
     }
+  },
+  "storage": {
+    "art": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "susieart077df6a8",
+          "attributes": [
+            "UserPoolId"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "AdminGroupRole"
+          ]
+        },
+        {
+          "category": "auth",
+          "resourceName": "userPoolGroups",
+          "attributes": [
+            "UserGroupRole"
+          ]
+        }
+      ]
+    }
   }
 }
