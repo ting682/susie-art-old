@@ -1,0 +1,80 @@
+type Art
+  @model(subscriptions: null)
+  @auth(
+    rules: [
+      {allow: groups, groups: ["Admin"]}
+      {allow: private, operations: [read]}
+      {allow: public, operations: [read]}
+    ]
+  ) {
+
+  id: ID!
+  title: String!
+  description: String
+  image: String
+  price: Float
+}
+
+type ArtOrder 
+  @model(subscriptions: null)
+  @key(name: "byArt", fields: ["art_id", "order_id"])
+  @key(name: "byOrder", fields: ["order_id", "art_id"])
+  @auth(
+    rules: [
+      { allow: owner, identityClaim: "email", ownerField: ""}
+      { allow: groups, groups: ["Admin"]}
+    ] 
+  ) {
+      id: ID!
+      art_id: ID!
+      order_id: ID!
+      art: Art @connection(fields: ["art_id"])
+      order: Order @connection(fields: ["order_id"])
+    }
+    
+type Order
+@model(subscriptions: null)
+@auth(
+  rules: [
+    {allow: owner, identityClaim: "email", ownerField: "customer"}
+    {allow: groups, groups: ["Admin"]}
+  ]
+)
+@key(name: "byUser", fields: ["user"]) {
+  id: ID!
+  user: String!
+  date: String
+  total: Float
+  books: [ArtOrder] @connection(keyName: "byOrder", fields: ["id"])
+}
+
+
+
+enum OrderStatus {
+  SUCCESS
+  FAILED
+}
+
+input CartItem {
+  id: ID!
+  title: String
+  image: String
+  price: Float
+  quantity: Int
+}
+
+input ProcessOrderInput {
+  id: ID!
+  cart: [CartItem]
+  total: Float!
+  token: String
+  address: String
+}
+
+type Mutation {
+  processOrder(input: ProcessOrderInput!): OrderStatus
+    @function(name: "processPayment-${env}")
+    @function(name: "createOrder-${env}")
+}
+
+
