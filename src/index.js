@@ -3,11 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Amplify from 'aws-amplify';
+import config from './aws-exports'
+import { routerMiddleware, ConnectedRouter } from 'connected-react-router'
+import { createBrowserHistory } from 'history'
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk'
+import { rootReducer } from './reducers/rootReducer'
+
+Amplify.configure(config)
+
+export const history = createBrowserHistory()
+
+const store = createStore(rootReducer(history), compose(applyMiddleware(thunk, routerMiddleware(history)), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()))
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+      <ConnectedRouter history={history}> { /* place ConnectedRouter under Provider */ }
+        <App history={history} />
+      </ConnectedRouter>
+    </Provider>,
   document.getElementById('root')
 );
 

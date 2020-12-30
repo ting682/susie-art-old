@@ -1,33 +1,37 @@
 {
-  "dev": {
-    "awscloudformation": {
-      "AuthRoleName": "amplify-susieart-dev-80625-authRole",
-      "UnauthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-dev-80625-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-dev-80625-authRole",
-      "Region": "us-east-1",
-      "DeploymentBucketName": "amplify-susieart-dev-80625-deployment",
-      "UnauthRoleName": "amplify-susieart-dev-80625-unauthRole",
-      "StackName": "amplify-susieart-dev-80625",
-      "StackId": "arn:aws:cloudformation:us-east-1:941134089152:stack/amplify-susieart-dev-80625/d5955040-4a9f-11eb-a444-12cd418968c5",
-      "AmplifyAppId": "d2xr0hwu7epy97"
-    },
-    "categories": {
-      "function": {
-        "susieart077df6a8CustomMessage": {
-          "REDIRECTURL": "http://localhost:3001/",
-          "EMAILSUBJECT": "Account confirmation",
-          "EMAILMESSAGE": "Your Google account has been confirmed"
+    "devnew": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-susieart-devnew-175632-authRole",
+            "UnauthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-devnew-175632-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::941134089152:role/amplify-susieart-devnew-175632-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-susieart-devnew-175632-deployment",
+            "UnauthRoleName": "amplify-susieart-devnew-175632-unauthRole",
+            "StackName": "amplify-susieart-devnew-175632",
+            "StackId": "arn:aws:cloudformation:us-east-1:941134089152:stack/amplify-susieart-devnew-175632/5a3a31d0-4ac8-11eb-a2f2-123bd221e837",
+            "AmplifyAppId": "d2xr0hwu7epy97"
+        },
+        "categories": {
+            "auth": {
+                "susieart077df6a8": {},
+                "userPoolGroups": {}
+            },
+            "function": {
+                "susieart077df6a8CustomMessage": {
+                    "REDIRECTURL": "http://localhost:3000/",
+                    "EMAILSUBJECT": "Account confirmed",
+                    "EMAILMESSAGE": "Your account is confirmed!"
+                },
+                "AdminQueries42e8cfb6": {},
+                "processPayment": {},
+                "createOrder": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d2xr0hwu7epy97",
+                    "type": "cicd"
+                }
+            }
         }
-      },
-      "auth": {
-        "susieart077df6a8": {}
-      },
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "d2xr0hwu7epy97",
-          "type": "cicd"
-        }
-      }
     }
-  }
 }

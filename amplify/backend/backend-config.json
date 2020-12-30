@@ -1,149 +1,148 @@
 {
-  "function": {
-    "susieart077df6a8CustomMessage": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "AdminQueries42e8cfb6": {
-      "service": "Lambda",
-      "providerPlugin": "awscloudformation",
-      "build": true,
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "susieart077df6a8",
-          "attributes": [
-            "UserPoolId"
-          ]
-        }
-      ]
-    },
-    "processPayment": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "createOrder": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
-  "auth": {
-    "susieart077df6a8": {
-      "service": "Cognito",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "susieart077df6a8CustomMessage",
-          "triggerProvider": "Cognito",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
-        }
-      ],
-      "customAuth": false
-    },
-    "userPoolGroups": {
-      "service": "Cognito-UserPool-Groups",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "susieart077df6a8",
-          "attributes": [
-            "UserPoolId",
-            "AppClientIDWeb",
-            "AppClientID",
-            "IdentityPoolId"
-          ]
-        }
-      ]
-    }
-  },
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "type": "cicd",
-      "lastPushTimeStamp": "2020-12-30T13:52:30.183Z"
-    }
-  },
-  "storage": {
-    "art": {
-      "service": "S3",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "susieart077df6a8",
-          "attributes": [
-            "UserPoolId"
-          ]
+    "function": {
+        "susieart077df6a8CustomMessage": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
         },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "AdminGroupRole"
-          ]
+        "AdminQueries42e8cfb6": {
+            "service": "Lambda",
+            "providerPlugin": "awscloudformation",
+            "build": true,
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "susieart077df6a8",
+                    "attributes": [
+                        "UserPoolId"
+                    ]
+                }
+            ]
         },
-        {
-          "category": "auth",
-          "resourceName": "userPoolGroups",
-          "attributes": [
-            "UserGroupRole"
-          ]
-        }
-      ]
-    }
-  },
-  "api": {
-    "AdminQueries": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "susieart077df6a8",
-          "attributes": [
-            "UserPoolId"
-          ]
+        "processPayment": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
         },
-        {
-          "category": "function",
-          "resourceName": "AdminQueries42e8cfb6",
-          "attributes": [
-            "Arn",
-            "Name"
-          ]
+        "createOrder": {
+            "build": true,
+            "providerPlugin": "awscloudformation",
+            "service": "Lambda"
         }
-      ]
     },
-    "susieart": {
-      "service": "AppSync",
-      "providerPlugin": "awscloudformation",
-      "output": {
-        "authConfig": {
-          "defaultAuthentication": {
-            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
-            "userPoolConfig": {
-              "userPoolId": "authsusieart077df6a8"
+    "auth": {
+        "susieart077df6a8": {
+            "service": "Cognito",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "function",
+                    "resourceName": "susieart077df6a8CustomMessage",
+                    "triggerProvider": "Cognito",
+                    "attributes": [
+                        "Arn",
+                        "Name"
+                    ]
+                }
+            ],
+            "customAuth": false
+        },
+        "userPoolGroups": {
+            "service": "Cognito-UserPool-Groups",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "susieart077df6a8",
+                    "attributes": [
+                        "UserPoolId",
+                        "AppClientIDWeb",
+                        "AppClientID",
+                        "IdentityPoolId"
+                    ]
+                }
+            ]
+        }
+    },
+    "hosting": {
+        "amplifyhosting": {
+            "service": "amplifyhosting",
+            "type": "cicd"
+        }
+    },
+    "storage": {
+        "art": {
+            "service": "S3",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "susieart077df6a8",
+                    "attributes": [
+                        "UserPoolId"
+                    ]
+                },
+                {
+                    "category": "auth",
+                    "resourceName": "userPoolGroups",
+                    "attributes": [
+                        "AdminGroupRole"
+                    ]
+                },
+                {
+                    "category": "auth",
+                    "resourceName": "userPoolGroups",
+                    "attributes": [
+                        "UserGroupRole"
+                    ]
+                }
+            ]
+        }
+    },
+    "api": {
+        "AdminQueries": {
+            "service": "API Gateway",
+            "providerPlugin": "awscloudformation",
+            "dependsOn": [
+                {
+                    "category": "auth",
+                    "resourceName": "susieart077df6a8",
+                    "attributes": [
+                        "UserPoolId"
+                    ]
+                },
+                {
+                    "category": "function",
+                    "resourceName": "AdminQueries42e8cfb6",
+                    "attributes": [
+                        "Arn",
+                        "Name"
+                    ]
+                }
+            ]
+        },
+        "susieart": {
+            "service": "AppSync",
+            "providerPlugin": "awscloudformation",
+            "output": {
+                "authConfig": {
+                    "defaultAuthentication": {
+                        "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+                        "userPoolConfig": {
+                            "userPoolId": "authsusieart077df6a8"
+                        }
+                    },
+                    "additionalAuthenticationProviders": [
+                        {
+                            "authenticationType": "API_KEY",
+                            "apiKeyConfig": {
+                                "apiKeyExpirationDays": 7,
+                                "description": "Guest user access to books"
+                            }
+                        }
+                    ]
+                }
             }
-          },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "API_KEY",
-              "apiKeyConfig": {
-                "apiKeyExpirationDays": 7,
-                "description": "Guest user access to books"
-              }
-            }
-          ]
         }
-      }
     }
-  }
 }
