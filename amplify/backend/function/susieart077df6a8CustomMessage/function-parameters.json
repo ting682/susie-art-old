@@ -1,0 +1,25 @@
+{
+  "trigger": true,
+  "modules": [
+    "verification-link"
+  ],
+  "parentResource": "susieart077df6a8",
+  "functionName": "susieart077df6a8CustomMessage",
+  "resourceName": "susieart077df6a8CustomMessage",
+  "parentStack": "auth",
+  "triggerEnvs": [
+    {
+      "key": "RESOURCENAME",
+      "value": "resourceName"
+    }
+  ],
+  "triggerDir": "/home/ting682/.nvm/versions/node/v15.0.1/lib/node_modules/@aws-amplify/cli/node_modules/amplify-category-auth/provider-utils/awscloudformation/triggers/CustomMessage",
+  "triggerTemplate": "CustomMessage.json.ejs",
+  "roleName": "susieart077df6a8CustomMessage",
+  "skipEdit": true,
+  "REDIRECTURL": "http://localhost:3001/",
+  "EMAILSUBJECT": "Account confirmation",
+  "EMAILMESSAGE": "Your Google account has been confirmed",
+  "RESOURCENAME": "resourceName",
+  "enableCors": false
+}
